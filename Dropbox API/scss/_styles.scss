@@ -1,0 +1,133 @@
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.toolbar {
+  min-height: 100vh;
+  min-width: 240px;
+  background-color: $toolbarBackground;
+}
+.file {
+  @include make-row;
+  text-align: center;
+  position: relative;
+  height: 65px;
+  line-height: 65px;
+  width: 80%;
+  margin: auto;
+  border-width: 0 0 0.2px 0;
+  border-style: solid;
+  border-color: $fileBorder;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  z-index: 1;
+  &__checkbox {
+    margin-top: 25px;
+    @include make-md-column(1);
+  }
+  &__tooltip {
+    line-height: 15px;
+    opacity: 0;
+    height: 30px;
+    background-color: rgba($color: $tooltip, $alpha: 1);
+    border: 1px solid $black;
+    border-radius: 5px;
+    color: $black;
+    text-align: center;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 15px;
+    left: 40%;
+    margin-left: -40px;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+  }
+  &__name {
+    @include make-md-column(2);
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    border-width: 0 0.2px 0 0;
+    border-style: solid;
+    border-color: $fileBorder;
+    &--extended {
+      @include make-md-column(2);
+    }
+    &:hover {
+      color: $nameHover;
+      overflow: hidden;
+      text-overflow: clip;
+    }
+    &:hover ~ .file__tooltip {
+      opacity: 1;
+    }
+  }
+  &__size {
+    @include make-md-column(4);
+    min-height: 65px;
+  }
+  &__date {
+    @include make-md-column(5);
+    min-height: 65px;
+  }
+  &:hover {
+    background-color: $fileHover;
+    cursor: pointer;
+    &::after {
+      content: "";
+      width: 0;
+      height: 0;
+      margin: auto;
+      margin-top: 12px;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid $contextMenu;
+    }
+  }
+  &:nth-child(1) {
+    border-width: 0.2px 0 0.2px 0;
+    border-style: solid;
+    border-color: $fileBorder;
+  }
+}
+.context-menu {
+  @include make-row;
+  width: 80%;
+  height: 0px;
+  margin: auto;
+  line-height: 65px;
+  text-align: center;
+  color: $white;
+  background-color: $contextMenu;
+  -webkit-transition: height 0.3s ease-out;
+  transition: height 0.3s ease-out;
+  cursor: pointer;
+  &--visible {
+    height: 65px;
+  }
+}
+.content-area {
+  width: 100%;
+}
+.navigation {
+  margin-top: 100px;
+  &__link {
+    display: inline-block;
+    color: $black;
+    padding: 5px 0 5px 15px;
+    height: 30px;
+    width: 100%;
+    background-color: $navLink;
+    &:hover {
+      text-decoration: none;
+      color: $black;
+      background-color: $fileHover;
+    }
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}

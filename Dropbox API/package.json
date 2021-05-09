@@ -1,0 +1,19 @@
+{
+  "name": "awesome-package",
+  "dependencies": {
+    "bootstrap-sass": "^3.4.1",
+    "dropbox": "^4.0.15"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^2.7.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack -w"
+  }
+}

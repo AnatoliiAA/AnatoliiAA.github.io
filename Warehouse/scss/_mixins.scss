@@ -1,0 +1,33 @@
+@mixin logo-c($color, $size) {
+	display: inline-block;
+	width: $size;
+	height: $size;
+	background-color: $color;
+}
+@mixin zigzag($color, $positionLeft) {
+	content: "";
+	background-image: 
+	linear-gradient(45deg, $color 12px, transparent 0), 
+	linear-gradient(135deg, $color 12px, transparent  0);
+	background-repeat: repeat-y;
+	background-size: 18px 21px;
+	height: 377px;
+	width: 32px;
+	display: block;
+	position: relative;
+	left: $positionLeft;
+}
+@mixin spriteicon($pos, $w) {
+	display: inline-block;
+	background-image: url(../img/sprite.png);
+	background-position: $pos 0;
+	width: $w; 
+	height: 50px;
+}
+@mixin spriteiconBig($pos, $w, $h) {
+	margin-top: 120px;
+	background-image: url(../img/sprite.png);
+	background-position: $pos 0;
+	width: $w;
+	height: $h; 
+}
